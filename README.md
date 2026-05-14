@@ -4,7 +4,7 @@ Robot diferencial autónomo con navegación a punto objetivo, mapeo del entorno 
 
 ## Demo
 
-> 📹 [Video de funcionamiento](REEMPLAZAR_CON_LINK)
+> 📹 [Video de funcionamiento]
 
 ---
 
@@ -81,7 +81,7 @@ sudo apt install ros-jazzy-nav2*
 ### 1. Clonar y compilar
 
 ```bash
-git clone https://github.com/TU_USUARIO/autonomous-maze-navigation-ros2.git
+git clone https://github.com/gmar313/autonomous-maze-navigation-ros2.git
 cd autonomous-maze-navigation-ros2
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select control_lab
@@ -167,18 +167,16 @@ Dar play en Gazebo, luego usar **Goal Pose** en RViz2 para indicar el destino. E
 
 ```
 autonomous-maze-navigation-ros2/
-├── src/
-│   └── control_lab/
-│       ├── control_lab/
-│       │   └── seguidor_paredes.py    # Nodo de seguimiento de paredes
-│       ├── launch/
-│       └── package.xml
-├── config/
-│   └── mis_params.yaml                # Parámetros personalizados Nav2
-├── maps/                              # Mapas pregenerados del laberinto
+│      tp_ros2_ws
+│        ├── src/
+│        │   └── control_lab/
+│        │       ├── control_lab/
+│        │           └── seguidor_paredes.py    # Nodo de seguimiento de paredes
+│        ├── mis_params.yaml                    # Parámetros personalizados Nav2
+│        └── mapa                               # Mapas pregenerados del laberinto
 └── README.md
 ```
 
 ---
 
-*Proyecto desarrollado en colaboración con [Nombre Compañero] para la materia [Nombre Materia], UNLP.*
+*Proyecto desarrollado en colaboración con Agustin Biesheuvel para la materia Introduccion a la robotica, UNLP.*
