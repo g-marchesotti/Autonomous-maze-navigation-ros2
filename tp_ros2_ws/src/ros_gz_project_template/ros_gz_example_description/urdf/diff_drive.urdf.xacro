@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot name="diff_drive" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- BASE LINK -->
+  <link name="chassis">
+    <visual>
+      <geometry>
+        <box size="0.4 0.3 0.15"/>
+      </geometry>
+      <origin xyz="0 0 0.075" rpy="0 0 0"/>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- LEFT WHEEL -->
+  <link name="left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.07" length="0.05"/>
+      </geometry>
+      <origin xyz="0 0.15 0.035" rpy="1.5708 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- RIGHT WHEEL -->
+  <link name="right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.07" length="0.05"/>
+      </geometry>
+      <origin xyz="0 -0.15 0.035" rpy="1.5708 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- CASTER -->
+  <link name="caster">
+    <visual>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+      <origin xyz="-0.15 0 0.02"/>
+      <material name="black">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- LIDAR -->
+  <link name="lidar_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.035" length="0.05"/>
+      </geometry>
+      <origin xyz="0 0 0.125"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- JOINTS -->
+  <joint name="chassis_to_left_wheel" type="fixed">
+    <parent link="chassis"/>
+    <child link="left_wheel"/>
+  </joint>
+
+  <joint name="chassis_to_right_wheel" type="fixed">
+    <parent link="chassis"/>
+    <child link="right_wheel"/>
+  </joint>
+
+  <joint name="chassis_to_caster" type="fixed">
+    <parent link="chassis"/>
+    <child link="caster"/>
+  </joint>
+
+  <joint name="chassis_to_lidar" type="fixed">
+    <parent link="chassis"/>
+    <child link="lidar_link"/>
+  </joint>
+
+</robot>

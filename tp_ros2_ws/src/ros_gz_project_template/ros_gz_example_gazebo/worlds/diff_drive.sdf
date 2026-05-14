@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="demo">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="BasicSystem" name="ros_gz_example_gazebo::BasicSystem"/>
+    <plugin filename="FullSystem" name="ros_gz_example_gazebo::FullSystem"/>
+
+    <physics name="10ms" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>90.0</real_time_update_rate>
+      <ode>
+        <solver>
+          <iters>20</iters>
+        </solver>
+      </ode>
+
+    </physics>
+
+    <light name="sun" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pared_1"><pose>0 10 1 0 0 0</pose><static>true</static><link name="link_1"><visual name="visual_1"><geometry><box><size>20.1 0.1 2</size></box></geometry></visual><collision name="collision_1"><geometry><box><size>20.1 0.1 2</size></box></geometry></collision></link></model>
+    <model name="pared_2"><pose>-10 0 1 0 0 1.5708</pose><static>true</static><link name="link_2"><visual name="visual_2"><geometry><box><size>20.1 0.1 2</size></box></geometry></visual><collision name="collision_2"><geometry><box><size>20.1 0.1 2</size></box></geometry></collision></link></model>
+    <model name="pared_3"><pose>0 -10 1 0 0 0</pose><static>true</static><link name="link_3"><visual name="visual_3"><geometry><box><size>20.1 0.1 2</size></box></geometry></visual><collision name="collision_3"><geometry><box><size>20.1 0.1 2</size></box></geometry></collision></link></model>
+    <model name="pared_4"><pose>10 0 1 0 0 1.5708</pose><static>true</static><link name="link_4"><visual name="visual_4"><geometry><box><size>20.1 0.1 2</size></box></geometry></visual><collision name="collision_4"><geometry><box><size>20.1 0.1 2</size></box></geometry></collision></link></model>
+
+    <model name="i_pared_A"><pose>-5 5 1 0 0 0</pose><static>true</static>
+      <link name="link_A">
+        <visual name="visual_A"><geometry><box><size>10 0.1 2</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient><diffuse>0.8 0.2 0.2 1</diffuse></material>
+        </visual>
+        <collision name="collision_A"><geometry><box><size>10 0.1 2</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="i_pared_B"><pose>5 0 1 0 0 0</pose><static>true</static>
+      <link name="link_B">
+        <visual name="visual_B"><geometry><box><size>10 0.1 2</size></box></geometry>
+          <material><ambient>0.2 0.8 0.2 1</ambient><diffuse>0.2 0.8 0.2 1</diffuse></material>
+        </visual>
+        <collision name="collision_B"><geometry><box><size>10 0.1 2</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="i_pared_C"><pose>-5 -5 1 0 0 1.5708</pose><static>true</static>
+      <link name="link_C">
+        <visual name="visual_C"><geometry><box><size>10 0.1 2</size></box></geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material>
+        </visual>
+        <collision name="collision_C"><geometry><box><size>10 0.1 2</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="i_pared_E"><pose>5 -5 1 0 0 0</pose><static>true</static>
+      <link name="link_E">
+        <visual name="visual_E"><geometry><box><size>10 0.1 2</size></box></geometry>
+          <material><ambient>0.2 0.8 0.8 1</ambient><diffuse>0.2 0.8 0.8 1</diffuse></material>
+        </visual>
+        <collision name="collision_E"><geometry><box><size>10 0.1 2</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="pared_nueva">
+      <pose>5 6.75 1 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link_new">
+        <visual name="visual_new">
+          <geometry><box><size>6.5 0.1 2</size></box></geometry>
+          <material>
+            <ambient>0.6 0.6 0.6 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision_new"><geometry><box><size>6.5 0.1 2</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="diff_drive">
+      <self_collide>true</self_collide>
+      <pose>-8.5 7.5 0.35 0 0 0</pose>
+      <include merge="true">
+        <uri>package://ros_gz_example_description/models/diff_drive</uri>
+      </include>
+
+      <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
+
+      <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+        <!-- cambie esto a false -->
+        <static_publisher>false</static_publisher> 
+        <!-- cambie eso a 30, etsaba en 1 -->
+        <static_update_frequency>30</static_update_frequency>
+      </plugin>
+
+      <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>diff_drive/odom</odom_frame>
+        <robot_base_frame>diff_drive</robot_base_frame>
+      </plugin>
+    </model>
+
+  </world>
+</sdf>
