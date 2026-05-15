@@ -81,7 +81,7 @@ sudo apt install ros-jazzy-nav2*
 ### 1. Clonar y compilar
 
 ```bash
-git clone https://github.com/gmar313/autonomous-maze-navigation-ros2.git
+git clone https://github.com/g-marchesotti/autonomous-maze-navigation-ros2.git
 cd autonomous-maze-navigation-ros2
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select control_lab
